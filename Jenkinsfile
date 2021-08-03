@@ -4,8 +4,10 @@ pipeline {
     stages {
         stage('Check Out') {
             steps {
-                echo 'Checking out... ;)'
+                echo 'Checking out... GIT_COMMIT:'
                 echo "${env.GIT_COMMIT}"
+                echo "Files updated!!!"
+                sh "git show --pretty="" --name-only -r ${env.GIT_COMMIT}"
             }
         }
          stage('Build') {
