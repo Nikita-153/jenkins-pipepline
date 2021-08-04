@@ -18,7 +18,7 @@ pipeline {
                 def stdout = bat(returnStdout: true, script: 'git show --name-only --pretty=format:').split("\n")
                 println("stdout value is:\n" + stdout)  
                   for(int i = 0; i<stdout.length; i++ ){
-                        println(i)
+                        println(stdout[i])
                   }
                 } // End of script
                 
