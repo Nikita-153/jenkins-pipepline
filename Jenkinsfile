@@ -8,6 +8,8 @@ pipeline {
                 echo "${env.GIT_COMMIT}"
                 echo "Files updated!!!"
                 bat "git show --name-only --pretty=format:"
+                stdout = bat(returnStdout: true, script: 'git show --name-only --pretty=format:')
+                println("stdout ################ " + stdout + " ####################")
             }
         }
          stage('Build') {
