@@ -16,7 +16,8 @@ pipeline {
 //                 echo "$status" 
                   
                 def stdout = bat(returnStdout: true, script: 'git show --name-only --pretty=format:').split("\n")
-                println("stdout value is:\n" + stdout)  
+                println("stdout value is:" + stdout) 
+                print("Going Inside for")
                   for(int i = 0; i<stdout.length; i++ ){
                         println(stdout[i])
                   }
