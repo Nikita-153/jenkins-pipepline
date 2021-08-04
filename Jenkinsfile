@@ -15,7 +15,7 @@ pipeline {
 //                 def status = bat(script: script, returnStdout: true)
 //                 echo "$status" 
                   
-                def stdout = bat(returnStdout: true, script: 'git show --name-only --pretty=format:').split()
+                def stdout = bat(returnStdout: true, script: 'git show --name-only --pretty=format:').split("\n")
                 println("stdout ################ " + stdout)  
                 } // End of script
                 
