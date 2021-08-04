@@ -8,10 +8,14 @@ pipeline {
                 echo 'Checking out... GIT_COMMIT:'
                 echo "${env.GIT_COMMIT}"
                 echo "Files updated!!!"
-                // bat "git show --name-only --pretty=format:"
-                
-                def stdout = bat(returnStdout: true, script: 'git show --name-only --pretty=format:')
-                println("stdout ################ " + stdout + " ####################")
+//                  bat "git show --name-only --pretty=format:"
+                def script = '''set status=FALSE 
+                                echo %status%'''   
+
+                def status = bat(script: script, returnStdout: true)
+                echo "$status" 
+//                 def stdout = bat(returnStdout: true, script: 'git show --name-only --pretty=format:')
+//                 println("stdout ################ " + stdout + " ####################")
             }
         }
          stage('Build') {
