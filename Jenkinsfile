@@ -44,15 +44,14 @@ pipeline {
         }
          stage('Avengers Part1') {
           
-
-            script{
-                  if(BUILD_STAGE.equalsIgnoreCase("true")){
             steps {
-                echo 'Avengers Part1 Testing...'
-            }
-            }// End of if
+                script{
+                  if(BUILD_STAGE.equalsIgnoreCase("true")){            
+                    echo 'Avengers Part1 Testing...'
+                    }// End of if
+                }// End of script
 
-            }// End of script
+            }// End of steps
 
 
         }// End of test
