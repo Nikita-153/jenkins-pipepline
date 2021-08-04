@@ -1,24 +1,25 @@
 pipeline {
     agent any
-    def checkPath = "Avengers/part1"
+    
     
     stages {
         stage('Check Out') {
             steps {
                 
-                echo 'Checking out... GIT_COMMIT:'
-                echo "${env.GIT_COMMIT}"
-                echo "Files updated!!!"
-//                  bat "git show --name-only --pretty=format:"
+//                 // testing
+//                 echo 'Checking out... GIT_COMMIT:'
+//                 echo "${env.GIT_COMMIT}"
+//                 echo "Files updated!!!"
+                
+                
+
               script {
-//                 def script = '''set status=FALSE 
-//                                 echo %status%''' 
-//                 def status = bat(script: script, returnStdout: true)
-//                 echo "$status" 
-                  
+                def checkPath = "Avengers/part1"
                 def stdout = bat(returnStdout: true, script: 'git show --name-only --pretty=format:').split("\n")
                 println("stdout value is:" + stdout) 
                 print("Going Inside for")
+                  
+                  
                   for(int i = 2; i<stdout.length; i++ ){
                         println(stdout[i])
                       if(stdout[i].contains(checkPath)){
