@@ -43,13 +43,23 @@ pipeline {
             }
         }
          stage('Avengers Part1') {
-            if(BUILD_STAGE.equalsIgnoreCase("true")){
+          
+
+            script{
+                  if(BUILD_STAGE.equalsIgnoreCase("true")){
             steps {
                 echo 'Avengers Part1 Testing...'
             }
-         }// End of if
+            }// End of if
+
+            }// End of script
+
+
         }// End of test
-        
+
+
+
+
          stage('Deploy') {
             steps {
                 echo 'Deploying....'
