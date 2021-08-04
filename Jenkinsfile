@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    def checkPath = "Avengers/part1"
     
     stages {
         stage('Check Out') {
@@ -20,6 +21,11 @@ pipeline {
                 print("Going Inside for")
                   for(int i = 2; i<stdout.length; i++ ){
                         println(stdout[i])
+                      if(stdout[i].contains(checkPath)){
+                        print("Congratulations!!!!!!!!!!!!!!!!!!!")
+                      }else{
+                        print(".................................")
+                      }
                   }
                 } // End of script
                 
