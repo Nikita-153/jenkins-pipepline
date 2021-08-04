@@ -10,13 +10,13 @@ pipeline {
                 echo "Files updated!!!"
 //                  bat "git show --name-only --pretty=format:"
               script {
-                def script = '''set status=FALSE 
-                                echo %status%'''   
-
-                def status = bat(script: script, returnStdout: true)
-                echo "$status" 
-                def stdout = bat(returnStdout: true, script: 'git show --name-only --pretty=format:')
-                println("stdout ################ " + stdout + " ####################")  
+//                 def script = '''set status=FALSE 
+//                                 echo %status%''' 
+//                 def status = bat(script: script, returnStdout: true)
+//                 echo "$status" 
+                  
+                def stdout = bat(returnStdout: true, script: 'git show --name-only --pretty=format:').trim().split("\n")
+                println("stdout ################ " + stdout)  
                 } // End of script
                 
             } // End of step
