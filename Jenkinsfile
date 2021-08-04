@@ -1,9 +1,10 @@
 pipeline {
     agent any
-    def stdout
+    
     stages {
         stage('Check Out') {
             steps {
+                def stdout
                 echo 'Checking out... GIT_COMMIT:'
                 echo "${env.GIT_COMMIT}"
                 echo "Files updated!!!"
