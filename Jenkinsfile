@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    def stdout
     stages {
         stage('Check Out') {
             steps {
