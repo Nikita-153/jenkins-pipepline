@@ -1,3 +1,4 @@
+def BUILD_STAGE = "false"
 pipeline {
     agent any
     
@@ -24,6 +25,8 @@ pipeline {
                         println(stdout[i])
                       if(stdout[i].contains(checkPath)){
                         print("Congratulations!!!!!!!!!!!!!!!!!!!")
+                        BUILD_STAGE = "true"
+                        break
                       }else{
                         print(".................................")
                       }
@@ -39,11 +42,14 @@ pipeline {
                 echo 'Building...'
             }
         }
-         stage('Test') {
+         stage('Avengers Part1') {
+            if(BUILD_STAGE.equalsIgnoreCase("true")){
             steps {
-                echo 'Testing...'
+                echo 'Avengers Part1 Testing...'
             }
-        }
+         }// End of if
+        }// End of test
+        
          stage('Deploy') {
             steps {
                 echo 'Deploying....'
